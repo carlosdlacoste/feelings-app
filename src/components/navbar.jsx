@@ -1,6 +1,6 @@
 import React from "react";
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react";
-
+import UploadLogo from "./uploadLogo";
 
 const NavBar = () =>{
     return(
@@ -9,23 +9,14 @@ const NavBar = () =>{
                 <NavbarBrand>
                     <p className="font-bold text-inherit">Feelings/Emotions Data</p>
                 </NavbarBrand>
-                {/* <NavbarContent className="hidden sm:flex gap-4" justify="center">
+                <NavbarContent className="hidden sm:flex gap-4" justify="center">
                     <NavbarItem>
-                        <Link color="foreground" href="#">
-                            Features
-                        </Link>
+                        <Button as={Link} href="#" variant="flat" className="bg-green-400">
+                            Upload
+                            <UploadLogo />
+                        </Button>
                     </NavbarItem>
-                    <NavbarItem isActive>
-                        <Link href="#" aria-current="page">
-                            Customers
-                        </Link>
-                    </NavbarItem>
-                    <NavbarItem>
-                        <Link color="foreground" href="#">
-                            Integrations
-                        </Link>
-                    </NavbarItem>
-                </NavbarContent> */}
+                </NavbarContent>
                 <NavbarContent justify="end">
                     <NavbarItem className="hidden lg:flex">
                         <Button as={Link} href="#" variant="flat" className="bg-green-400">
