@@ -5,11 +5,11 @@ import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@nex
 const NavBar = () =>{
     return(
         <>
-            <Navbar isBordered>
+            <Navbar isBordered className="bg-slate-500">
                 <NavbarBrand>
-                    <p className="font-bold text-inherit">ACME</p>
+                    <p className="font-bold text-inherit">Feelings/Emotions Data</p>
                 </NavbarBrand>
-                <NavbarContent className="hidden sm:flex gap-4" justify="center">
+                {/* <NavbarContent className="hidden sm:flex gap-4" justify="center">
                     <NavbarItem>
                         <Link color="foreground" href="#">
                             Features
@@ -25,13 +25,15 @@ const NavBar = () =>{
                             Integrations
                         </Link>
                     </NavbarItem>
-                </NavbarContent>
+                </NavbarContent> */}
                 <NavbarContent justify="end">
                     <NavbarItem className="hidden lg:flex">
-                        <Link href="#">Login</Link>
+                        <Button as={Link} href="#" variant="flat" className="bg-green-400">
+                            Log In
+                        </Button>
                     </NavbarItem>
                     <NavbarItem>
-                        <Button as={Link} color="primary" href="#" variant="flat">
+                        <Button as={Link} href="#" variant="flat" className="bg-yellow-400">
                             Sign Up
                         </Button>
                     </NavbarItem>
