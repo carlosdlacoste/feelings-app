@@ -1,10 +1,12 @@
 import CSVReader from "@/components/CSVReader";
-import Image from "next/image";
 
 export default function Home() {
   return (
     <>
-      <CSVReader/>
+      <div className="container mx-auto px-4 py-2 my-3">
+
+        <CSVReader/>
+      </div>
     </>
   );
 }

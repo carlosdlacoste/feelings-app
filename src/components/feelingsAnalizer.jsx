@@ -6,13 +6,29 @@ import {
     TableBody,
     TableColumn,
     TableRow,
-    TableCell
+    TableCell,
+    Pagination
 } from "@nextui-org/react";
+
 
 const FeelingsAnalizer = ({data}) => {
 
     const [modelResult, setModelResult] = useState([])
     const [maxLabel, setMaxLabel] = useState("")
+
+    const ITEMS_PER_PAGE = 10;
+
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const handlePageChange = (page) => {
+        setCurrentPage(page);
+    };
+
+    const paginatedData = data.slice(
+        (currentPage - 1) * ITEMS_PER_PAGE,
+        currentPage * ITEMS_PER_PAGE
+    );
+    
 
     // useEffect(() => {
 
@@ -52,23 +68,29 @@ const FeelingsAnalizer = ({data}) => {
 
     return(
         <>
-            <Table aria-label="Example static collection table">
-                <TableHeader>
-                    <TableColumn>ID</TableColumn>
-                    <TableColumn>Message</TableColumn>
-                    <TableColumn>Sentiment</TableColumn>
-                </TableHeader>
-                <TableBody>
-                    {data.map((item, index) => (
-                        <TableRow key={index}>
-                        <TableCell>{index}</TableCell>
-                        <TableCell>{item.text}</TableCell>
-                        <TableCell>N/A</TableCell>
-                        </TableRow>
+        
+            <div className="flex flex-col items-center justify-center space-y-7 mt-4">
+                <Pagination
+                    total={Math.ceil(data.length / ITEMS_PER_PAGE)}
+                    initialPage={1}
+                    onChange={handlePageChange}
+                />
+                <Table aria-label="Example static collection table">
+                    <TableHeader>
+                        <TableColumn className="text-center">Message</TableColumn>
+                        <TableColumn>Sentiment</TableColumn>
+                    </TableHeader>
+                    <TableBody>
+                        {paginatedData.map((item, index) => (
+                            <TableRow key={index}>
+                                <TableCell>{item.text}</TableCell>
+                                <TableCell>N/A</TableCell>
+                            </TableRow>
 
-                    ))}
-                </TableBody>
-            </Table>
+                        ))}
+                    </TableBody>
+                </Table>
+            </div>
         </>
     )
 }
