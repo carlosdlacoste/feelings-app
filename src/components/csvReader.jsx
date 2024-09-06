@@ -2,6 +2,7 @@
 import { useState } from "react"
 import Papa from "papaparse"
 import UploadLogo from "./uploadLogo";
+import FeelingsAnalizer from "./feelingsAnalizer";
 
 const CSVReader = () => {
 
@@ -12,7 +13,7 @@ const CSVReader = () => {
         Papa.parse(file, {
             header: true,
             complete: function(results) {
-                console.log(results.data)
+                // console.log(results.data)
                 setData(results.data)
             }
         })
@@ -26,6 +27,8 @@ const CSVReader = () => {
                     <input type="file" onChange={handleFile} className="hidden"/>
                 </label>
             </div>
+
+            <FeelingsAnalizer data={data}/>
         </>
     )
 
