@@ -3,6 +3,7 @@ import { useState } from "react"
 import Papa from "papaparse"
 import UploadLogo from "./uploadLogo";
 import FeelingsAnalizer from "./feelingsAnalizer";
+import EmotionsAnalizer from "./emotionsAnalizer";
 
 const CSVReader = () => {
 
@@ -28,7 +29,10 @@ const CSVReader = () => {
                 </label>
             </div>
 
-            <FeelingsAnalizer data={data}/>
+            <div className="flex flex-col justify-center items-center space-y-11">
+                <FeelingsAnalizer data={data}/>
+                <EmotionsAnalizer data={data}/>
+            </div>
         </>
     )
 
