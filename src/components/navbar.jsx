@@ -7,7 +7,9 @@ const NavBar = () =>{
         <>
             <Navbar isBordered className="bg-slate-500">
                 <NavbarBrand>
-                    <p className="font-bold text-inherit">Feelings/Emotions Data</p>
+                    <Link href="/">
+                        <p className="font-bold text-inherit">Feelings/Emotions Data</p>
+                    </Link>
                 </NavbarBrand>
                 {/* <NavbarContent className="hidden sm:flex gap-4" justify="center">
                     <NavbarItem>

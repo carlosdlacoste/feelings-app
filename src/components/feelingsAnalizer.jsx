@@ -68,8 +68,10 @@ const FeelingsAnalizer = ({data}) => {
 
     return(
         <>
-        
             <div className="flex flex-col items-center justify-center space-y-7 mt-4">
+                <div className="text-xl">
+                    <h1>Sentiment Model</h1>
+                </div>
                 <Pagination
                     total={Math.ceil(data.length / ITEMS_PER_PAGE)}
                     initialPage={1}
